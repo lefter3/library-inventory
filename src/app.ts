@@ -9,14 +9,7 @@ app.use(express.json());
 app.use(express.static("public"));
 // API Routes
 
-app.use('/api', router);
-
-
-// 404
-// Routes
-app.get("/", (req, res) => {
- res.send("Secure Express Server");
-});
+app.use('/', router);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
  console.log(err.stack);
