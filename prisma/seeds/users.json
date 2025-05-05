@@ -1,11 +1,18 @@
 [
     {
-        "email": "admin@dummy-library.com"
+        "email": "admin@dummy-library.com",
+        "role": "ADMIN"
     },
     {
-        "email": "user1@email.com"
+        "email": "user1@email.com",
+        "role": "USER"
     },
     {
-        "email": "user2@email.com"
+        "email": "user2@email.com",
+        "role": "USER"
+    },
+    {
+        "email": "management@library.com",
+        "role": "MANAGEMENT"
     }
 ]

@@ -10,6 +10,7 @@ async function seedUsers() {
         await prisma.users.create({
           data: {
             email: user.email,
+            role: user.role,
           },
         });
         console.log(`User ${user.email} created.`);
