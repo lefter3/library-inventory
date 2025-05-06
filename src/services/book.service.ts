@@ -15,7 +15,6 @@ export class BookService {
   async searchBooks(payload: SearchBooks): Promise<Books[]> {
     const { query, page, limit  } = payload;
     const offset = (page - 1) * limit;
-    console.log(page,limit, offset, query)
     if (!query) {
       return prisma.books.findMany({
         take: limit,

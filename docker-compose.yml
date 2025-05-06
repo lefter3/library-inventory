@@ -17,28 +17,6 @@ services:
       retries: 5
       start_period: 30s
       timeout: 10s
-    
-
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: api
-    ports:
-      - "3000:3000"
-    networks:
-      - library_network
-    depends_on:
-      db:
-        condition: service_healthy  
-    environment:
-      # - .env
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-      - POSTGRES_HOST=db
-    # command: npm run dev
 
 networks:
   library_network:

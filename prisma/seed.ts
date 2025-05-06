@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Role } from '@prisma/client';
 import books from './seeds/books.json';
 import users from './seeds/users.json';
 
@@ -10,7 +10,7 @@ async function seedUsers() {
         await prisma.users.create({
           data: {
             email: user.email,
-            role: user.role,
+            role: user.role as Role,
           },
         });
         console.log(`User ${user.email} created.`);
@@ -59,12 +59,10 @@ async function main() {
         seedBooks(),
         seedAmount()
     ])
+    await prisma.$disconnect();
 
   console.log('Seeding complete');
 }
 
 main()
   .catch((e) => console.error(e))
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
